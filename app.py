@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, render_template
 from markupsafe import escape
 app = Flask(__name__)
 
@@ -19,8 +19,8 @@ movies = [
 
 
 @app.route("/")
-def hello():
-    return "Welcome to My Watchlist!"
+def index():
+    return render_template("index.html", name=name, movies=movies)
 
 
 @app.route("/user/<name>")
